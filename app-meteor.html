@@ -1,14 +1,16 @@
 <head>
-  <title>app-meteor</title>
+    <title>app-meteor</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="/">Home</a>
+        </li>
+        <li role="presentation"><a href="projects">Projects</a>
+        </li>
+        <li role="presentation"><a href="tasks">Tasks</a>
+        </li>
+        <li role="presentation"><a href="trackers">Trackers</a>
+        </li>
+    </ul>
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
