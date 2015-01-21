@@ -1,9 +1,9 @@
 ProjectController = ApplicationController.extend({
-    index: function () {
-        this.render('projects');
-    },
+  index: function() {
+    this.render('projects');
+  },
 
-    new: function () {
-        this.render('project');
-    }
+  new: function() {
+    this.render('project');
+  }
 });
