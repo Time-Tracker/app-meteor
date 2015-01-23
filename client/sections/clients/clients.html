@@ -1,0 +1,25 @@
+<template name="clients">
+    <form class="form-inline" id="form-client" data-parsley-validate>
+        <input type="text" id="client" required>
+        <button class="btn btn-success btn-save-client">Save</button>
+    </form>
+    
+    <br/>
+    <br/>
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        {{#each clients}}
+        <tr>
+            <td>{{name}}</td>
+            <td>
+                <button class="btn btn-primary btn-edit-client">Edit</button>
+                <button class="btn btn-danger btn-delete-client">Delete</button>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</template>

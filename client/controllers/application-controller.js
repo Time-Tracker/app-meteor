@@ -1,5 +1,13 @@
+Project = new Mongo.Collection("project");
+Client = new Mongo.Collection("client");
+Task = new Mongo.Collection("task");
+
 ApplicationController = RouteController.extend({
   layoutTemplate: 'AppLayout',
+
+  index: function() {
+    this.render('home');
+  },
 
   onBeforeAction: function() {
     console.log('app before hook!');
