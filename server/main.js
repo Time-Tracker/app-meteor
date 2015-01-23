@@ -1,6 +1,7 @@
 Project = new Mongo.Collection("project");
 Client = new Mongo.Collection("client");
 Task = new Mongo.Collection("task");
+TaskLog = new Mongo.Collection("tasklog");
 
 var Schemas = {};
 Schemas.Client = new SimpleSchema({
@@ -42,6 +43,21 @@ Schemas.Task = new SimpleSchema({
   working: {
     type: Boolean,
     defaultValue: false
+  }
+});
+Task.attachSchema(Schemas.Task);
+
+Schemas.TaskLog = new SimpleSchema({
+  task: {
+    type: String,
+    max: 200,
+    index: true
+  },
+  start: {
+    type: Date,
+  },
+  end: {
+    type: Date,
   }
 });
 Task.attachSchema(Schemas.Task);

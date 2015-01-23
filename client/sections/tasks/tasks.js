@@ -1,3 +1,11 @@
+Template.startTimer = function() {
+  console.log(Session.get('runTimer'));
+  if (Session.get('runTimer') !== -1) {
+    Session.set('runTimer', Session.get('runTimer') + 1);
+    setTimeout(Template.startTimer, 1000)
+  }
+}
+
 Template.tasks.events({
   'click .btn-edit-task': function(e) {
     $('#task-name').val(this.name);
@@ -23,12 +31,9 @@ Template.tasks.events({
         'working': true
       }
     });
+    Session.set('runTimer', 0);
+    Template.startTimer();
 
-    Template.timer = new Chronos.Timer(5000);
-    Tracker.autorun(function() {
-      console.log(Template.timer.time.get());
-    });
-    Template.timer.start();
   },
 
   'click .btn-stop-task': function(e) {
@@ -40,9 +45,12 @@ Template.tasks.events({
         'working': false
       }
     });
-
-    console.log(Template.timer);
-    Template.timer.stop();
+    TaskLog.insert({
+      'task': this._id,
+      'end': (new Date()).getTime(),
+      'spent': Session.get('runTimer'),
+    })
+    Session.set('runTimer', -1);
   },
 
   'submit #form-task': function(e) {

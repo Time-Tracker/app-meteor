@@ -1,6 +1,7 @@
 Project = new Mongo.Collection("project");
 Client = new Mongo.Collection("client");
 Task = new Mongo.Collection("task");
+TaskLog = new Mongo.Collection("tasklog");
 
 ApplicationController = RouteController.extend({
   layoutTemplate: 'AppLayout',

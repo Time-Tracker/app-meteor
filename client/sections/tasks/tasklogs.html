@@ -1,0 +1,20 @@
+<template name="tasklogs">
+<h3>All Task Logs</h3>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Task</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Spent</th>
+  </tr>
+  {{#each tasklogs}}
+  <tr>
+    <td>{{task}}</td>
+    <td>{{start}}</td>
+    <td>{{end}}</td>
+    <td>{{spent}}</td>
+  </tr>
+  {{/each}}
+</table>
+</template>
