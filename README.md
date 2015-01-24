@@ -1,6 +1,6 @@
-# Time Tracker API
+# Tloger (Time Loger App)
 
-APP for time tracker project using:-
+APP for time logging using:-
 * [Meteor](https://www.meteor.com/)
 
 ## Running Locally
@@ -15,3 +15,7 @@ meteor
 ```
 
 Your app should now be running on [http://localhost:3000](http://localhost:3000/)
+
+Application is deployed at url :- [tloger.meteor.com](tloger.meteor.com) 
+
+You can deploy your instance of the application at meteor.com using:- meteor deploy **myappname.meteor.com**
