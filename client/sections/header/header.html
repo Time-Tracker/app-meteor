@@ -1,0 +1,12 @@
+<template name="header">
+<div class="header">
+    <nav>
+        <ul class="nav nav-pills pull-right">
+            {{#each menuItems}}
+                <li role="presentation" class="{{active}} menu-item"><a>{{title}}</a></li>
+            {{/each}}
+        </ul>
+    </nav>
+    <a href="/"><h3 class="text-muted">TLOGER</h3></a>
+</div>
+</template>

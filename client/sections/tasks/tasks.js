@@ -1,6 +1,24 @@
+function secondsToTime(secs) {
+  var hours = Math.floor(secs / (60 * 60));
+
+  var divisor_for_minutes = secs % (60 * 60);
+  var minutes = Math.floor(divisor_for_minutes / 60);
+
+  var divisor_for_seconds = divisor_for_minutes % 60;
+  var seconds = Math.ceil(divisor_for_seconds);
+
+  // var obj = {
+  //   "h": hours,
+  //   "m": minutes,
+  //   "s": seconds
+  // };
+  var obj = hours + ':' + minutes + ':' + seconds;
+  return obj;
+}
+
+
 Template.startTimer = function() {
-  console.log(Session.get('runTimer'));
-  if (Session.get('runTimer') !== -1) {
+  if (Session.get('runTimer') !== undefined) {
     Session.set('runTimer', Session.get('runTimer') + 1);
     setTimeout(Template.startTimer, 1000)
   }
@@ -32,8 +50,8 @@ Template.tasks.events({
       }
     });
     Session.set('runTimer', 0);
+    Session.set('currentTask', this);
     Template.startTimer();
-
   },
 
   'click .btn-stop-task': function(e) {
@@ -45,12 +63,14 @@ Template.tasks.events({
         'working': false
       }
     });
+    console.log(Session.get('runTimer'));
     TaskLog.insert({
       'task': this._id,
       'end': (new Date()).getTime(),
       'spent': Session.get('runTimer'),
     })
-    Session.set('runTimer', -1);
+    Session.set('runTimer');
+    Session.set('currentTask');
   },
 
   'submit #form-task': function(e) {
@@ -85,6 +105,13 @@ Template.tasks.helpers({
   },
   tasks: function() {
     return Task.find({});
+  },
+  currentTask: function() {
+    var task = Session.get('currentTask');
+    if (task) {
+      task.spent = secondsToTime(Session.get('runTimer'));
+    }
+    return task;
   }
 });
 

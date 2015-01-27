@@ -1,5 +1,6 @@
 Template.clients.events({
   'submit #form-client': function(e) {
+    $('.alert-danger').hide();
     var name = $('#client').val();
     var dataId = $('#client').attr('data-id');
     console.log(name, dataId);
@@ -16,7 +17,9 @@ Template.clients.events({
       Client.insert({
         'name': name
       }, function(error, result) {
-        console.log(error, result);
+        console.log(error.reason);
+        $('.alert-danger').html(error.reason);
+        $('.alert-danger').fadeIn();
       });
     }
     $('#client').removeAttr('data-id');
@@ -42,7 +45,5 @@ Template.clients.helpers({
 });
 
 Template.clients.rendered = function() {
-  $('#form-client').parsley({
-    trigger: 'change'
-  });
+  $('.alert-danger').hide();
 }

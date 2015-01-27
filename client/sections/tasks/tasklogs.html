@@ -1,20 +1,24 @@
 <template name="tasklogs">
 <h3>All Task Logs</h3>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered">
+  <thead>
   <tr>
     <th>Task</th>
     <th>Start</th>
     <th>End</th>
-    <th>Spent</th>
+    <th>Time Spent(H:M:S)</th>
   </tr>
+  </thead>
+  <tbody>
   {{#each tasklogs}}
   <tr>
-    <td>{{task}}</td>
-    <td>{{start}}</td>
-    <td>{{end}}</td>
-    <td>{{spent}}</td>
+    <td>{{taskName}}</td>
+    <td>{{startTime}}</td>
+    <td>{{endTime}}</td>
+    <td>{{timeSpent}}</td>
   </tr>
   {{/each}}
+  </tbody>
 </table>
 </template>

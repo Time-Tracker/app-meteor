@@ -1,8 +1,9 @@
 <template name="projects">
 <h3>All Projects</h3>
-<form class="form-inline" id="form-project" data-parsley-validate>
-  <input type="text" id="projectName" required />
-  <select id="selectClient">
+<div class="alert alert-danger"></div>
+<form class="form-inline" id="form-project">
+  <input type="text" id="projectName" required class="form-control" />
+  <select id="selectClient" class="form-control">
     <option>None</option>
     {{#each clients}}
       <option value="{{_id}}">{{name}}</option>
@@ -14,21 +15,25 @@
 </form>
 <br/>
 <br/>
-<table class="table table-bordered table-striped">
+<table class="table table-bordered">
+  <thead>
   <tr>
     <th>Name</th>
     <th>Description</th>
     <th>Actions</th>
   </tr>
+  </thead>
+  <tbody>
   {{#each projects}}
   <tr>
     <td>{{name}}</td>
-    <td>{{client}}</td>
+    <td>{{clientName}}</td>
     <td>
       <button class="btn btn-primary btn-edit-project">Edit</button>
       <button class="btn btn-danger btn-delete-project">Delete</button>
     </td>
   </tr>
   {{/each}}
+  </tbody>
 </table>
 </template>

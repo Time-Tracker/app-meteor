@@ -16,12 +16,21 @@
 <br/>
 <br/>
 
-<table class="table table-bordered table-striped">
+{{#with currentTask}}
+<div class="row">
+  Working on {{name}} Time spent: {{spent}}
+</div>
+{{/with}}
+
+<table class="table table-bordered">
+  <thead>
   <tr>
     <th>Task</th>
     <th>Project</th>
     <th>Actions</th>
   </tr>
+  </thead>
+  <tbody>
   {{#each tasks}}
   <tr>
     <td>{{name}}</td>
@@ -37,5 +46,6 @@
     </td>
   </tr>
   {{/each}}
+  </tbody>
 </table>
 </template>

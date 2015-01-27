@@ -1,17 +1,21 @@
 <template name="clients">
-    <form class="form-inline" id="form-client" data-parsley-validate>
-        <input type="text" id="client" required>
+    <div class="alert alert-danger"></div>
+    <form class="form-inline" id="form-client">
+        <input type="text" id="client" required class="form-control">
         <button class="btn btn-success btn-save-client">Save</button>
     </form>
     
     <br/>
     <br/>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered">
+        <thead>
         <tr>
             <th>Name</th>
             <th>Actions</th>
         </tr>
+        </thead>
+        <tbody>
         {{#each clients}}
         <tr>
             <td>{{name}}</td>
@@ -21,5 +25,6 @@
             </td>
         </tr>
         {{/each}}
+        </tbody>
     </table>
 </template>

@@ -4,7 +4,7 @@ Task = new Mongo.Collection("task");
 TaskLog = new Mongo.Collection("tasklog");
 
 ApplicationController = RouteController.extend({
-  layoutTemplate: 'AppLayout',
+  layoutTemplate: 'applayout',
 
   index: function() {
     this.render('home');

@@ -1,29 +1,21 @@
 <head>
-    <title>app-meteor</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+	<title>TLOGER</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 </body>
-<template name="AppLayout">
+<template name="applayout">
 <div class="container">
-    <nav>
-        <ul>
-        <li>
-            <a href="/clients">Clients</a>
-        </li>
-        <li>
-            <a href="/projects">Projects</a>
-        </li>
-        <li>
-            <a href="/tasks">Tasks</a>
-        </li>
-        <li>
-            <a href="/tasklogs">Task Logs</a>
-        </li>        
-    </ul>
-</nav>
-<article>
-{{> yield}}
-</article>
+	{{> header}}
+	<hr/>
+	<br/>
+	<div>
+		{{> yield}}
+	</div>	
+<footer class="footer container">
+	<p>TLoger © 2014</p>
+</footer>	
 </div>
+
+
 </template>
